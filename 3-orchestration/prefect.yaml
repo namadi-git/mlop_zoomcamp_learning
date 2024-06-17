@@ -15,7 +15,7 @@ push: null
 # pull section allows you to provide instructions for cloning this project in remote locations
 pull:
 - prefect.deployments.steps.git_clone:
-    repository: https://github.com/namadi-git/mlop_zoomcamp_learning
+    repository: https://github.com/namadi-git/mlop_zoomcamp_learning.git
     branch: main
     access_token: null
 
@@ -28,7 +28,7 @@ deployments:
   description: null
   schedule: {}
   flow_name: null
-  entrypoint: orchestrate.py:main_flow
+  entrypoint: 3-orchestration/orchestrate.py:main_flow
   parameters: {}
   work_pool:
     name: my-work-pool-worm
