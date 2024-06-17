@@ -111,7 +111,7 @@ def train_best_model(
 
 @flow (name='flow_worm')
 def main_flow(
-    train_path: str = "../data/green_tripdata_2023-01.parquet",
+    train_path: str = "../data/green_tripdata_2023-05.parquet",
     val_path: str = "../data/green_tripdata_2023-02.parquet",
 ) -> None:
     """The main training pipeline"""
