@@ -7,29 +7,47 @@ name: 3-orchestration
 prefect-version: 2.17.1
 
 # build section allows you to manage and build docker images
-build: null
+build:
 
 # push section allows you to manage if and how this project is uploaded to remote locations
-push: null
+push:
 
 # pull section allows you to provide instructions for cloning this project in remote locations
 pull:
 - prefect.deployments.steps.git_clone:
     repository: https://github.com/namadi-git/mlop_zoomcamp_learning
     branch: main
-    access_token: null
+    access_token:
 
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
-- name: null
-  version: null
+- name:
+  version:
   tags: []
-  description: null
+  description:
   schedule: {}
-  flow_name: null
-  entrypoint: null
+  flow_name:
+  entrypoint:
   parameters: {}
   work_pool:
-    name: null
-    work_queue_name: null
+    name:
+    work_queue_name:
     job_variables: {}
+
+- name: taxi_deployment2
+  version:
+  tags: []
+  description: The main training pipeline
+  entrypoint: 3-orchestration/orchestrate.py:main_flow
+  storage:
+    type: github
+    repository: https://github.com/namadi-git/mlop_zoomcamp_learning
+    reference: main  # Branch name or commit SHA
+  infrastructure:
+    type: process
+  parameters: {}
+  work_pool:
+    name: my-work-pool-worm
+    work_queue_name:
+    job_variables: {}
+  schedules: []
